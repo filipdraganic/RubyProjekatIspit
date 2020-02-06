@@ -1,0 +1,24 @@
+
+<section class="section">
+  <div class="container">
+    <% @dokuments.each do |dokument|  %>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"> <%= link_to dokument.title, dokument %></p>
+            </div>
+          </div>
+          <div class="content">
+            <%= dokument.content %>
+          </div>
+<!--          <div class="comment-count">-->
+<!--            <span class="tag is-rounded"> <%## comment.count %></span>-->
+<!--          </div>-->
+        </div>
+      </div>
+      <br>
+
+    <% end %>
+  </div>
+</section>

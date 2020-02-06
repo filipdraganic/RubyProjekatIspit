@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kupac: 
+  dokument: 
+  content: MyString
+  foreign_key: 
+
+two:
+  kupac: 
+  dokument: 
+  content: MyString
+  foreign_key: 

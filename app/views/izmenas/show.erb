@@ -1,0 +1,52 @@
+<style>
+  ins {
+    text-decoration: none;
+    background-color: #d4fcbc;
+  }
+
+  del {
+    text-decoration: line-through;
+    background-color: #fbb6c2;
+    color: #555;
+  }
+</style>
+
+<section class="section">
+   <div class="container">
+     <h1>Izmene za selektovan dokument : </h1>
+     <% brojac = 0 %>
+    <% @izmenas.each do |izmena|  %>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content navbar">
+              <p class="title is-4 is-right"> <%= izmena.title %></p>
+              <p class=" navbar-end">
+                <%#= link_to "Rollback", rollback_dokument_izmenas_path, class:"navbar-item" %>
+                <%= link_to "Rollback", rollback_dokument_izmenas_path(nesto:izmena), method: :post, class:"button is-danger" %>
+              </p>
+            </div>
+          </div>
+          <div class="content">
+            <%if brojac != 0 %>
+
+              <%end %>
+            <% puts brojac %>
+            <% brojac+=1 %>
+            <%= izmena.content %>
+            <% staraIzmena = izmena %>
+
+            <p id="output"></p>
+
+          </div>
+
+          <!--          <div class="comment-count">-->
+          <!--            <span class="tag is-rounded"> <%## comment.count %></span>-->
+          <!--          </div>-->
+        </div>
+      </div>
+      <br>
+
+    <% end %>
+  </div>
+</section>

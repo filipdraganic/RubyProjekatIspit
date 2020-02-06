@@ -1,0 +1,29 @@
+
+<section class="section">
+  <div class="container">
+    <% @users.each do |user|  %>
+      <% if user.id != current_user.id %>
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4"> <%=  user.email %></p>
+            </div>
+          </div>
+          <div class="content">
+            <%= user.password %>
+
+          </div>
+          <div class="nav">
+            <%= link_to "Delete", obrisi_users_path(nesto:user), method: :delete, data: {confirm: "Da li ste sigurni?"}, class:"button is-danger dugmici" %>
+
+            <%= link_to "Toggle Admin", makeAdmin_users_path(nesto:user), method: :post, data: {confirm: "Da li ste sigurni?"}, class:"button is-info dugmici" %>
+          </div>
+
+        </div>
+      </div>
+      <br>
+    <%end %>
+    <% end %>
+  </div>
+</section>

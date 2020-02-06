@@ -1,0 +1,89 @@
+
+<style>
+  #paragraf{
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  #dugme{
+    margin: 0px 10px 10px 10px;
+
+  }
+    #textfield{
+      margin-bottom: 10px;
+      max-width: 150px;
+    }
+
+    .dugmici{
+      margin-bottom: 10px;
+    }
+
+
+
+</style>
+
+<section class="section">
+  <div class="container">
+
+    <nav class="level">
+      <div class="level-left">
+        <p class="level-item">
+          <strong>Opcije</strong>
+        </p>
+
+        <p class="level-item">
+          <%=  link_to "Pogledaj izmene", dokument_izmenas_path(@dokument), class: "button dugmici" %>
+
+        </p>
+
+
+      </div>
+
+      <div class="level-right">
+       <!-- <%#= form_for @dokument, url:addKorisnik_dokuments_path do |f| %>
+          <div class="text-field">
+            <div class="control">
+              <%#= f.text_field :content, input_html: { class: 'input' }, wrapper: false, label_html: {class: 'label'} %>
+            </div>
+          </div>
+
+          <%#= f.button :submit, class: "button is-primary" %>
+          <%# end %>-->
+        <p class="level-item">
+        <%= form_tag(addKorisnik_dokuments_path, :method => "post") do %>
+          <%= label_tag(:q, "Search for:",:id=>"labela", :class=>"nesto ", :name=>"labela") %>
+          <%= email_field_tag(:q ,"",:id=>"textfield", :class=>"input dugmici ", :name=>"q") %>
+          <%= submit_tag("Add user", :id=>"dugme", :class=>"button dugmici", :name=>"submit")  %>
+        <% end %>
+        </p>
+
+  <!--      <p class="level-item">
+          <%#= link_to "Dodaj kolaboratora", dokument_addKorisnik_path(@dokument), class:"button" %>
+
+        </p>-->
+        <p class="level-item">
+          <%=  link_to "Edit", edit_dokument_path(@dokument), class: "button dugmici" %>
+        </p>
+
+        <p class="level-item">
+          <%= link_to "Delete", dokument_path(@dokument), method: :delete, data: {confirm: "Da li ste sigurni?"}, class:"button is-danger dugmici" %>
+        </p>
+      </div>
+    </nav>
+    <hr>
+
+
+    <h2 class="title"><%= @dokument.title %></h2>
+    <div class="content" id="paragraf">
+      <%= simple_format(@dokument.content)  %>
+    </div>
+
+
+    <h2 class="title is-5">Vlasnici ovog dokumenta:</h2>
+
+    <div class="list ">
+    <% @users.each do |user| %>
+        <a class="list-item"> <%=user.email %></a>
+    <% end %>
+    </div>
+  </div>
+</section>
