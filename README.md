@@ -21,4 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+Ispitni projekat iz skriptnih jezika odradjen u ruby-ju. 
+
+Tema projekta: Srpska verzija Github-a
